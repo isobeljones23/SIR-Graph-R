@@ -35,3 +35,15 @@ plot(x, I, type='l', col = "red", lwd = 2, ylim = c(0,n), xlab="Days", ylab="Peo
 lines(x, S, col="blue", lwd = 2)
 lines(x, R, col="green", lwd = 2)
 legend("left", legend = c("Infected", "Susceptible", "Recovered"), col = c("red", "blue", "green"), lwd = 2)
+
+# create data frame
+data <- data.frame(
+  Day = x,
+  Susceptible = round(S),
+  Infected = round(I),
+  Recovered = round(R),
+  Beta = beta,
+  Gamma = gamma
+)
+# write to file
+write_csv(data, "History.csv")
