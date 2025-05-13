@@ -1,5 +1,5 @@
 # libraries used:
-# dplyr, tidyr, ggplot2
+# dplyr, tidyr, ggplot2, readr
 
 
 # notes
@@ -49,7 +49,7 @@ SIR_data <- data.frame(
   Gamma = gamma
 )
 
-# convert data frame into long format so it can be plotted - surely if you created the data in the correct format orginally this wouldn't be necessary?
+# convert data frame into long format so it can be plotted - surely if you created the data in the correct format originally this wouldn't be necessary?
 SIR_long_format <- pivot_longer(SIR_data, cols = c(Susceptible, Infected, Recovered), names_to = "Compartment", values_to = "Count")
 
 # create plot using ggplot2
@@ -61,4 +61,4 @@ viz
 
 
 # write to file
-write_csv(data, "History.csv")
+write_csv(SIR_data, "History.csv")
